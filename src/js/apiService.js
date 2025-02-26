@@ -1,10 +1,10 @@
-const NEWS_API_KEY = "v3rKoVXqC2qFPlCrKL9HemfESnPoUrqh0I0MbgOn";
+const NEWS_API_KEY = "b4a1ee2e6ff44e129773a16ed882b5da";
 const GUARDIAN_API_KEY = "3f47c8d1-a80f-4ec2-b620-1f3de6e38f73";
 const NYT_API_KEY = "GcMCBCXSt75j0s3I8MzKs9zdtbGUHyTI";
 
 // API URLs
-const NEWS_API = `https://api.thenewsapi.com/v1/news/top?api_token=${NEWS_API_KEY}`;
-const GUARDIAN_API = `https://content.guardianapis.com/search?show-fields=thumbnail&api-key=${GUARDIAN_API_KEY}`;
+const NEWS_API = `https://newsapi.org/v2/everything?q=apple&from=2025-02-25&to=2025-02-25&sortBy=popularity&apiKey=${NEWS_API_KEY}`;
+const GUARDIAN_API = `https://content.guardianapis.com/search?show-fields=all&api-key=${GUARDIAN_API_KEY}`;
 const NYT_API = `https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${NYT_API_KEY}`;
 
 export async function fetchNews() {
@@ -19,14 +19,18 @@ export async function fetchNews() {
             responses.map(async (res, index) => {
                 if (res.status === "fulfilled" && res.value.ok) {
                     const data = await res.value.json();
+                    console.log(data)
 
                     // Tag articles with the API source
                     if (index === 0 && data.articles) {
                         data.articles.forEach(article => article.source_id = "newsapi");
-                    } else if (index === 1 && data.results) {
-                        data.results.forEach(article => article.source_id = "guardian");
+                    } else if (index === 1 && data.response.results) {
+                        data.response.results.forEach(article => article.source_id = "guardian");
+                        //published has the dates
                     } else if (index === 2 && data.results) {
                         data.results.forEach(article => article.source_id = "nyt");
+                        //byline stores author 
+                        //created_date store date created
                     }
 
                     return data;

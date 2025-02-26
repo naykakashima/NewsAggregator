@@ -8,6 +8,7 @@ export function createNewsCard(article) {
     const image = getImageUrl(article); // Handle image logic separately
     const url = article.url || article.webUrl || "#";
     const source = (article.source && article.source.name) || article.sectionName || article.source_id || "Unknown Source";
+    const date = new Date(article.publishedAt).toUTCString() || new Date(article.webPublicationDate).toUTCString() || new Date(article.created_date).toUTCString() || "No Date Available";
 
     card.innerHTML = `
         <div class="card shadow-sm">
@@ -22,6 +23,8 @@ export function createNewsCard(article) {
                 <p class="card-text text-gray-600">${description}</p>
                 <p><small class="text-muted">${source}</small></p>
                 <a class="text-blue-500" href="${url}" target="_blank" class="btn btn-primary"> Read More </a>
+                <br>
+                <a class="text-gray-400" class="btn btn-primary"> ${date} </a>
             </div>
         </div>
     `;

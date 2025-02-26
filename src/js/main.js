@@ -11,12 +11,12 @@ let allArticles = []; // Store all articles globally
 // 📰 Load and render news
 async function loadNews() {
     container.innerHTML = "";
-    showSkeletons(container, 6); // Show placeholders
+    showSkeletons(container, 12); // Show placeholders
 
     const [newsAPI, guardianAPI, nytAPI] = await fetchNews();
     allArticles = [
         ...(newsAPI?.articles || []),
-        ...(guardianAPI?.results || []),
+        ...(guardianAPI?.response.results || []),
         ...(nytAPI?.results || [])
     ];
 
