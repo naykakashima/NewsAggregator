@@ -7,7 +7,7 @@ A simple JavaScript web app that pulls in news from three different sources and 
 - Fetches news articles from 3 sources (e.g., APIs or static feeds)
 - Aggregates and deduplicates the content
 - Renders everything in a clean, unified layout
-- Built with vanilla JS, TailwindCSS, and Parcel
+- Built with vanilla JS and TailwindCSS
 
 ## 🛠️ Getting Started
 
