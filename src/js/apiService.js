@@ -1,6 +1,6 @@
-const NEWS_API_KEY = "b4a1ee2e6ff44e129773a16ed882b5da";
-const GUARDIAN_API_KEY = "3f47c8d1-a80f-4ec2-b620-1f3de6e38f73";
-const NYT_API_KEY = "GcMCBCXSt75j0s3I8MzKs9zdtbGUHyTI";
+const NEWS_API_KEY = "${process.env.NEWS_API}"; // Replace with your actual News API key or use an environment variable
+const GUARDIAN_API_KEY = "${process.env.GUARDIAN_API}"; // Replace with your actual Guardian API key or use an environment variable
+const NYT_API_KEY = "${process.env.NYT_API}"; // Replace with your actual NYT API key or use an environment variable
 
 // API URLs
 const NEWS_API = `https://newsapi.org/v2/everything?q=apple&from=2025-02-25&to=2025-02-25&sortBy=popularity&apiKey=${NEWS_API_KEY}`;

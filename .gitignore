@@ -1,8 +1,17 @@
 # Node modules
 node_modules/
 
-# Parcel cache
+# Build cache
 .cache/
+dist/
+
+# Tailwind CSS build output (if compiled CSS is generated)
+src/css/*.css
+!src/css/input.css    # <-- Keep your source/input file (rename as needed)
+
+# Parcel-generated assets
+*.parcel-cache
+.parcel-cache/
 
 # Logs
 *.log
@@ -10,12 +19,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# OS junk
+# Environment variables
+.env
+
+# System junk
 .DS_Store
 Thumbs.db
-
-# Build output (if you add a dist later)
-dist/
-
-# Env files (if you decide to use API keys later)
-.env
