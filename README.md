@@ -30,12 +30,12 @@ A simple JavaScript web app that pulls in news from three different sources and 
 
 ## 📁 Project Structure
 
-    ```bash
+    
     src/
     ├── js/         # JavaScript logic (fetching + rendering)
     ├── css/        # TailwindCSS styles
     ├── assets/     # Images and icons
-    ```
+    
 
 ## 📦 Built With
 - Tailwindcss
