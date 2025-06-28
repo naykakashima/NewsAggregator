@@ -8,6 +8,7 @@ dist/
 # Tailwind CSS build output (if compiled CSS is generated)
 src/css/*.css
 !src/css/input.css    # <-- Keep your source/input file (rename as needed)
+src/output.css
 
 # Parcel-generated assets
 *.parcel-cache
